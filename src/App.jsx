@@ -5,10 +5,12 @@ import SearchBox from "./components/SearchBox/SearchBox"
 import ContactList from "./components/ContactList/ContactList"
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-// import { selectContacts, selectError, selectIsLoading } from './redux/contacts/slice';
 import { fetchContacts } from './redux/contacts/operations';
 import { selectContacts, selectError, selectIsLoading } from './redux/contacts/selectors';
-// import { fetchContacts } from './redux/contacts/contactsOps';
+
+
+// import { RegistrationForm } from './components/RegistrationForm/RegistrationForm';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +25,10 @@ function App() {
   
   return (
     <div className={css.section}>
-    <div className={css.container}>
+      <div className={css.container}>
+        
+      {/* <RegistrationForm/> */}
+
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
