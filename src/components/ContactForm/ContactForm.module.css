@@ -1,0 +1,79 @@
+form.submitForm {
+  display: flex;
+  justify-content: center;
+  
+  /* width: 374px;
+  height: 220px; */
+  font-family: inherit;
+}
+
+.submitForm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  width: 350px;
+  border: 2px solid black;
+  border-radius: 10px;
+
+/* 
+  padding: 10px; */
+}
+/* 
+input:-internal-autofill-selected {
+  background-color: rgba(77, 69, 123, 0.7);
+}
+input.userName:hover {
+  background-color: rgba(48, 15, 235, 0.7);
+
+} */
+
+input.userName, input.numberName {
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(220, 215, 247, 0.7);
+}
+
+input.userName:hover, input.userName:focus, input.numberName:hover, input.numberName:focus {
+  background-color: white;
+  outline: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin: 0 auto;
+  margin-top: 10px; 
+  border: none;
+  border-radius: 8px;
+  /* box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.7); */
+  background-color: rgba(220, 215, 247, 0.7);
+  
+  transition: background-color 0.3s ease;
+
+}
+
+.btn:hover {
+  border-color: #ffffff;
+  box-shadow: 2px 4px 8px rgba(77, 69, 123, 0.7);
+  background-color: #ffffff;
+
+}
+
+.error {
+  color: red;
+  font-size: small;
+}
+
+label {
+  font-size: 15px;
+}
+
+.numberLabel {
+  margin-top: 10px;
+}
+
+.userName, .numberName {
+  padding: 5px 10px;
+      font-size: 20px;
+}

@@ -1,0 +1,28 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  width: 373px;
+  margin-top: 20px;
+}
+
+.input {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(220, 215, 247, 0.7);
+  transition: background-color 0.3s ease;
+}
+
+input:hover, input:focus {
+  background-color: white;
+  outline: none;
+}
+
+
+
+/* 
+
+input.userName, input.numberName {
+  border: none;
+  border-radius: 10px;
+} */

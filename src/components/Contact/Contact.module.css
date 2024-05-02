@@ -1,0 +1,39 @@
+
+.item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+border: 2px solid black;
+border-radius: 5px;
+width: 300px;
+}
+
+.btn {
+  display: flex;
+  border-radius: 8px;
+  border: none;
+  /* box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.7); */
+  
+  background-color: rgba(220, 215, 247, 0.7);
+  transition: background-color 0.3s ease;
+
+  padding: 5px 10px;
+}
+
+.btn:hover, .btn:focus {
+  border-color: #ffffff;
+  box-shadow: 2px 4px 8px rgba(77, 69, 123, 0.7);
+  background-color: #ffffff;
+}
+
+/* 
+btn {
+display: flex;
+} */
+
+.iconName {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
