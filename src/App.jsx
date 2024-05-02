@@ -9,7 +9,7 @@ import { fetchContacts } from './redux/contacts/operations';
 import { selectContacts, selectError, selectIsLoading } from './redux/contacts/selectors';
 
 
-// import { RegistrationForm } from './components/RegistrationForm/RegistrationForm';
+import { RegistrationForm } from './components/RegistrationForm/RegistrationForm';
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
     <div className={css.section}>
       <div className={css.container}>
         
-      {/* <RegistrationForm/> */}
+      <RegistrationForm/>
 
       <h1>Phonebook</h1>
       <ContactForm />
