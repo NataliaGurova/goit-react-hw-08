@@ -1,6 +1,6 @@
 
-import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { addContact, deleteContact, fetchContacts } from './contactsOps';
+import { createSlice } from '@reduxjs/toolkit';
+import { addContact, deleteContact, fetchContacts } from './operations';
 // import initialContacts from '../data/contacts.json'
 // import { nanoid } from 'nanoid'
 
@@ -61,24 +61,24 @@ const contactsSlice = createSlice({
 
 
 
-export const selectContacts = (state) => state.contacts.items;
-export const selectIsLoading = (state) => state.contacts.isLoading;
-export const selectError = (state) => state.contacts.error;
+// export const selectContacts = (state) => state.contacts.items;
+// export const selectIsLoading = (state) => state.contacts.isLoading;
+// export const selectError = (state) => state.contacts.error;
 
-export const selectFilterName = (state) => state.filters.name;
+// export const selectFilterName = (state) => state.filters.name;
 
-export const selectFilteredContacts = createSelector(
-   // Масив вхідних селекторів
-  [selectContacts, selectFilterName],
-  // Функція перетворювач
-  (contacts, filterName) => {
-    // Виконуємо обчислення та повертаємо результат
-    const compareName = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filterName.toLowerCase())
-    );
-    return compareName;
-  }
-)
+// export const selectFilteredContacts = createSelector(
+//    // Масив вхідних селекторів
+//   [selectContacts, selectFilterName],
+//   // Функція перетворювач
+//   (contacts, filterName) => {
+//     // Виконуємо обчислення та повертаємо результат
+//     const compareName = contacts.filter((contact) =>
+//     contact.name.toLowerCase().includes(filterName.toLowerCase())
+//     );
+//     return compareName;
+//   }
+// )
 
 
 export const contactsReducer = contactsSlice.reducer;
