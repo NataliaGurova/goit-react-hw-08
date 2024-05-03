@@ -10,6 +10,7 @@ import { selectContacts, selectError, selectIsLoading } from './redux/contacts/s
 
 
 import { RegistrationForm } from './components/RegistrationForm/RegistrationForm';
+import { LoginForm } from './components/LoginForm/LoginForm';
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
     <div className={css.section}>
       <div className={css.container}>
         
-      <RegistrationForm/>
+        <RegistrationForm />
+        <LoginForm />
 
       <h1>Phonebook</h1>
       <ContactForm />

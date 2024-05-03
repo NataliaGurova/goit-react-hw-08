@@ -1,135 +1,100 @@
- Кожне завдання буде представлено об'єктом з наступними властивостями:
 
-id - унікальний ідентифікатор
-text - текст, який ввів користувач під час створення
-completed - прапор, що вказує, виконано завдання чи ні
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { contactsReducer } from "./contactsSlice";
+import { filtersReducer } from "./filtersSlice";
 
-// Початкове значення стану Redux для кореневого редюсера,
-// якщо не передати параметр preloadedState.
-const initialState = {
-  tasks: [
-    { id: 0, text: "Learn HTML and CSS", completed: true },
-    { id: 1, text: "Get good at JavaScript", completed: true },
-    { id: 2, text: "Master React", completed: false },
-    { id: 3, text: "Discover Redux", completed: false },
-    { id: 4, text: "Build amazing apps", completed: false },
-  ],
-  filters: {
-    status: "all",
-  },
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+
+const rootReducer = combineReducers({
+  contacts: contactsReducer,
+  filters: filtersReducer,
+});
+
+const persistConfig = {
+  key: 'book', // Ключ кореневого об'єкта, в якому будуть зберігатися дані
+  storage: storage,
 };
 
-Для того, щоб відокремити логіку Redux від коду компонентів, нам буде достатньо зробити папку src/redux з такими файлами.
-actions.js - файл оголошення екшенів програми
-reducer.js - файл оголошення функцій-редюсерів для оновлення стану
-constants.js - файл для зберігання констант (наприклад значень фільтру статусу)
-selectors.js - файл оголошення функцій-селекторів
-store.js - файл створення стор Redux
-============================================
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
- npm install redux
- Для використання React та Redux разом, необхідно додати до проекту бібліотеку React Redux
- npm install react-redux
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
 
+export const persistor = persistStore(store);
+export default store;
+===============================
+MAIN
 
-Для створення стора є функція configureStore(), яка приймає кілька параметрів та повертає новий об'єкт стора.
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import store, { persistor } from "./redux/store.js";
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-configureStore(reducer, preloadedState, enhancer)
-reducer - функція із логікою зміни стану Redux. Обов'язковий параметр.
-preloadedState - початковий стан програми. Це має бути об'єкт тієї ж форми, що й, як мінімум, частина стану. Необов'язковий параметр.
-enhancer - функція розширення можливостей стору. Необов'язковий параметр.
-
-// src/redux/store.js
-
-import { configureStore } from "redux"; !!!!!! configur
-
-// Початкове значення стану Redux для кореневого редюсера,
-// якщо не передати параметр preloadedState.
-const initialState = {
-  tasks: [
-    { id: 0, text: "Learn HTML and CSS", completed: true },
-    { id: 1, text: "Get good at JavaScript", completed: true },
-    { id: 2, text: "Master React", completed: false },
-    { id: 3, text: "Discover Redux", completed: false },
-    { id: 4, text: "Build amazing apps", completed: false },
-  ],
-  filters: {
-    status: "all",
-  },
-};
-
-// Поки що використовуємо редюсер який
-// тільки повертає отриманий стан
-const rootReducer = (state = initialState, action) => {
-  return state;
-};
-
-export const store = configureStore(rootReducer);
-
-====================================================
-
- Щоб зв'язати store з компонентами React, щоб вони могли отримувати доступ до стору та його методів у бібліотеці React Redux є компонент Provider, котрий чекає однойменний пропс store.  Для того щоб будь-який компонент у додатку міг використовувати стор, обертаємо Provider все дерево компонентів.
-
- // src/main.jsx
-
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from './components/App';
-import { store } from "./redux/store";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 	  <Provider store={store}>
-	    <App />
+	    <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
 	  </Provider>
-  </React.StrictMode>
-);
+  </React.StrictMode>,
+)
+=================================================
+import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { tasksReducer } from './tasks/slice';
+import { authReducer } from './auth/slice';
 
+// Persisting token field from auth slice to localstorage
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
-==================================
-
-Для початку необхідно додати розширення інструментів розробника у ваш браузер:
-
-Chrome Web Store
-Firefox Add-ons
-Edge Add-ons
-
-
-Далі встановлюємо бібліотеку, яка дозволить ініціалізувати логіку Redux DevTools та зв'язати її з розширенням в інструментах розробника.
-
-npm install @redux-devtools/extension
-
-Ми поки що не використовуємо жодних додаткових можливостей Redux, тому імпортуємо функцію devToolsEnhancer і використовуємо її при створенні стора, передавши її результат третім аргументом, замість початкового стану.
------------------------------------
-// src/redux/store.js
-
-<!-- import { createStore } from "redux"; не актуальне!!!!!!! -->
-Актуальне
-import { configureStore } from "@reduxjs/toolkit";
-import { devToolsEnhancer } from "@redux-devtools/extension";
-
-const initialState = {
-  tasks: [
-    { id: 0, text: "Learn HTML and CSS", completed: true },
-    { id: 1, text: "Get good at JavaScript", completed: true },
-    { id: 2, text: "Master React", completed: false },
-    { id: 3, text: "Discover Redux", completed: false },
-    { id: 4, text: "Build amazing apps", completed: false },
-  ],
-  filters: {
-    status: "all",
+export const store = configureStore({
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    tasks: tasksReducer,
   },
-};
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  devTools: process.env.NODE_ENV === 'development',
+});
 
-const rootReducer = (state = initialState, action) => {
-  return state;
-};
-
-// Створюємо розширення стора, щоб додати інструменти розробника
-const enhancer = devToolsEnhancer();
-export const store = configureStore(rootReducer, enhancer);
---------------------------------------------
-npm i
-npm run dev
---------------------------------------------
-items = contacts !!!!!!!!!!!!!!!! 
+export const persistor = persistStore(store);

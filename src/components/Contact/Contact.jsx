@@ -4,7 +4,6 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { useDispatch } from 'react-redux'
 import { deleteContact } from "../../redux/contacts/operations";
 
-// import { deleteContact } from "../../redux/contactsOps";
 
 
 const Contact = ({ contact }) => { 
@@ -28,3 +27,19 @@ const Contact = ({ contact }) => {
 }
 
 export default Contact;
+
+
+// export const Task = ({ id, text }) => {
+//   const dispatch = useDispatch();
+
+//   const handleDelete = () => dispatch(deleteTask(id));
+
+//   return (
+//     <div className={css.wrapper}>
+//       <p className={css.text}>{text}</p>
+//       <button type="button" className={css.button} onClick={handleDelete}>
+//         Delete
+//       </button>
+//     </div>
+//   );
+// };
