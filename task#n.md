@@ -82,14 +82,17 @@ export const persistor = persistStore(store);
 ===================================================
 APP
 
-import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { useEffect, lazy } from 'react';
+
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
-import { PrivateRoute } from './PrivateRoute';
-import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from '../redux/auth/operations';
 import { selectIsRefreshing } from '../redux/auth/selectors';
+
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -136,15 +139,16 @@ export const App = () => {
 MAIN
 
 import React from 'react';
-import { HelmetProvider } from 'react-helmet-async';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/integration/react';
-import { Provider } from 'react-redux';
 import { App } from './components/App';
-import { store, persistor } from './redux/store';
-import 'modern-normalize';
 import './index.css';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store';
+
+import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter } from 'react-router-dom';
+import 'modern-normalize';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -235,6 +239,7 @@ import DocumentTitle from '../../components/DocumentTitle';
 import { TaskList } from '../../components/TaskList/TaskList';
 import { TaskEditor } from '../../components/TaskEditor/TaskEditor';
 import { fetchTasks } from '../../redux/tasks/operations';
+
 import { selectLoading } from '../../redux/tasks/selectors';
 
 export default function TasksPage() {
@@ -255,3 +260,45 @@ export default function TasksPage() {
   );
 }
 
+=====
+
+// import css from './App.module.css'
+// import ContactForm from "./components/ContactForm/ContactForm"
+// import SearchBox from "./components/SearchBox/SearchBox"
+// import ContactList from "./components/ContactList/ContactList"
+// import { fetchContacts } from './redux/contacts/operations';
+// import { selectContacts, selectError, selectIsLoading } from './redux/contacts/selectors';
+
+
+// import { RegistrationForm } from './components/RegistrationForm/RegistrationForm';
+// import { LoginForm } from './components/LoginForm/LoginForm';
+
+
+// function App() {
+//   const dispatch = useDispatch();
+//   // const { items, isLoading, error } = useSelector(selectContacts);
+//   const items = useSelector(selectContacts)
+//   const isLoading = useSelector(selectIsLoading)
+//   const error = useSelector(selectError)
+  
+//   useEffect(() => {
+//     dispatch(fetchContacts());
+//   }, [dispatch]);
+  
+//   return (
+//     <div className={css.section}>
+//       <div className={css.container}>
+        
+//         <RegistrationForm />
+//         <LoginForm />
+
+//       <h1>Phonebook</h1>
+//       <ContactForm />
+//       <SearchBox />
+//       {isLoading && <b>Loading tasks...</b>}
+//       {error && <b>{error}</b>}
+//       {items.length > 0 && <ContactList items={items} />}
+//       </div>
+//     </div>
+//   )
+// }
