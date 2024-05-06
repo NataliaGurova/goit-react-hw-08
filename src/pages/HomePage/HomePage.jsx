@@ -30,7 +30,7 @@ export default function HomePage() {
         <h1 style={styles.title}>
           Welcome to Phonebook!{' '}
           <span role="img" aria-label="Greeting icon">
-            <img src="src\photo\phonebook_1061527.png" width={40} alt="" />
+            {/* <img src="src\photo\phonebook_1061527.png" width={40} alt="" /> */}
           </span>
         </h1>
       </div>
