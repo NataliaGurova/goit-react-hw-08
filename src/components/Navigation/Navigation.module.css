@@ -7,5 +7,51 @@
 }
 
 .link.active {
-  color: #e84a5f;
+  color: #fcd21a;
+}
+
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  color: #d3d2d2;
+
+  /* font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold; */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* .regPart {
+  font-size: 18px;
+} */
+
+.link:hover,
+.link:focus,
+.link:active {
+  transform: scale(0.95);
+}
+
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  /* .regPart {
+    margin-left: 40px;
+  } */
+}
+@media screen and (min-width: 1250px) {
+  .header {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  /* .regPart {
+    margin-left: 60px;
+  } */
 }

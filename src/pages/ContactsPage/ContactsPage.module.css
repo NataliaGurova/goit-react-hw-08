@@ -1,0 +1,9 @@
+
+.container {
+  display: flex;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+}

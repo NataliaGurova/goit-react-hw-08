@@ -5,12 +5,21 @@
   margin-top: 20px;
 }
 
+.searchLabel {
+   -webkit-text-stroke-width: 0.5px; /* Товщина бордеру літери */
+  -webkit-text-stroke-color: black; /* Колір бордеру літери */
+}
+
 .input {
   padding: 5px 10px;
   border: none;
+  width: 350px;
   border-radius: 10px;
   background-color: rgba(220, 215, 247, 0.7);
   transition: background-color 0.3s ease;
+
+   -webkit-text-stroke-width: 0.5px; /* Товщина бордеру літери */
+  -webkit-text-stroke-color: black; /* Колір бордеру літери */
 }
 
 input:hover, input:focus {

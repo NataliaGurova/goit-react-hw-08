@@ -3,7 +3,9 @@
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
-  color: #2a363b;
+  /* color: #2a363b; */
+  color: #d3d2d2;
+  
 }
 
 .link.active {

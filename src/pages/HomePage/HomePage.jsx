@@ -14,6 +14,10 @@ const styles = {
     fontWeight: 500,
     fontSize: 48,
     textAlign: 'center',
+    color: '#d3d2d2',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    boxShadow: '0 0 10px 10px rgba(0, 0, 0, 0.5)',
+    borderRadius: 15,
   },
 };
 
@@ -24,9 +28,9 @@ export default function HomePage() {
 
       <div style={styles.container}>
         <h1 style={styles.title}>
-          Task manager welcome page{' '}
+          Welcome to Phonebook!{' '}
           <span role="img" aria-label="Greeting icon">
-            💁‍♀️
+            <img src="src\photo\phonebook_1061527.png" width={40} alt="" />
           </span>
         </h1>
       </div>

@@ -1,9 +1,50 @@
 .form {
   width: 320px;
+  -webkit-text-stroke-width: 0.5px; /* Товщина бордеру літери */
+  -webkit-text-stroke-color: black; /* Колір бордеру літери */
 }
 
 .label {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
+}
+
+
+
+.inputLogin {
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(220, 215, 247, 0.7);
+
+   padding: 5px 10px;
+      font-size: 14px;
+}
+
+.inputLogin:hover, .inputLogin:focus, input.numberName:hover, input.numberName:focus {
+  background-color: white;
+  outline: none;
+}
+
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  /* margin: 0 auto; */
+  margin-top: 10px; 
+  border: none;
+  border-radius: 8px;
+  
+  background-color: rgba(220, 215, 247, 0.7);
+  
+  transition: background-color 0.3s ease;
+
+}
+
+.btn:hover {
+  border-color: #ffffff;
+  box-shadow: 2px 4px 8px rgba(77, 69, 123, 0.7);
+  background-color: #ffffff;
+
 }

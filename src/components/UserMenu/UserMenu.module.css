@@ -6,4 +6,27 @@
 
 .username {
   font-weight: 700;
+  color: #d3d2d2;
+}
+
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin: 0 auto;
+  /* margin-top: 10px;  */
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(220, 215, 247, 0.7);
+  
+  transition: background-color 0.3s ease;
+
+}
+
+.btn:hover {
+  border-color: #ffffff;
+  box-shadow: 2px 4px 8px rgba(77, 69, 123, 0.7);
+  background-color: #ffffff;
+
 }

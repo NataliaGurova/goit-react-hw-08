@@ -6,7 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import * as Yup from 'yup';
 import { addContact } from "../../redux/contacts/operations";
-// import { addContact } from "../../redux/contactsOps";
+// import { toast } from "react-hot-toast";
 
 
 const initialValues = {
@@ -29,8 +29,8 @@ const ContactForm = () => {
   //     name: values.name,
   //     number: values.number,
   //   };
-    dispatch(addContact({name, number}));
-
+    dispatch(addContact({ name, number }));
+    // toast.success('New contact added');
 		actions.resetForm();   
 	};
 
@@ -45,8 +45,8 @@ const ContactForm = () => {
         <Field type="text" name="number" className={css.numberName} />
         <ErrorMessage name='number' component='p' className={css.error} />
       <button className={css.btn} type="submit">Add contact</button>
-    </Form>
-    </Formik>
+      </Form>
+      </Formik>
   );
 };
 

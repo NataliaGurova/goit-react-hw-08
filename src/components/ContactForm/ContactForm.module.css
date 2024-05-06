@@ -1,7 +1,9 @@
 form.submitForm {
   display: flex;
   justify-content: center;
-  
+    padding: 10px;
+  /* margin: 0 auto; */
+  margin-top: 20px;
   /* width: 374px;
   height: 220px; */
   font-family: inherit;
@@ -14,8 +16,8 @@ form.submitForm {
   width: 350px;
   border: 2px solid black;
   border-radius: 10px;
-
-/* 
+  
+  /* 
   padding: 10px; */
 }
 /* 
@@ -24,8 +26,14 @@ input:-internal-autofill-selected {
 }
 input.userName:hover {
   background-color: rgba(48, 15, 235, 0.7);
-
+  
 } */
+
+.userLabel, .numberLabel {
+  font-size: 15px;
+   -webkit-text-stroke-width: 0.5px; /* Товщина бордеру літери */
+  -webkit-text-stroke-color: black; /* Колір бордеру літери */
+}
 
 input.userName, input.numberName {
   border: none;
@@ -49,6 +57,8 @@ input.userName:hover, input.userName:focus, input.numberName:hover, input.number
   /* box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.7); */
   background-color: rgba(220, 215, 247, 0.7);
   
+   -webkit-text-stroke-width: 0.5px; /* Товщина бордеру літери */
+  -webkit-text-stroke-color: black; /* Колір бордеру літери */
   transition: background-color 0.3s ease;
 
 }
@@ -65,9 +75,6 @@ input.userName:hover, input.userName:focus, input.numberName:hover, input.number
   font-size: small;
 }
 
-label {
-  font-size: 15px;
-}
 
 .numberLabel {
   margin-top: 10px;
@@ -75,5 +82,5 @@ label {
 
 .userName, .numberName {
   padding: 5px 10px;
-      font-size: 20px;
+      font-size: 14px;
 }

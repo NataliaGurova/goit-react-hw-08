@@ -13,8 +13,8 @@ const handleInputChange = (e) => {
 
   return (
     <div className={css.contact}>
-      <label>Find contacts by name</label>
-      <input className={css.input} type="text" onChange={handleInputChange}/>
+      {/* <label className={css.searchLabel}>Find contacts by name</label> */}
+      <input className={css.input} type="text" onChange={handleInputChange} placeholder="Find contacts by name/number"/>
     </div>
   );
 };

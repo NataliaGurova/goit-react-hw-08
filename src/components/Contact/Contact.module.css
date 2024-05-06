@@ -6,19 +6,28 @@ justify-content: space-between;
 padding: 10px;
 border: 2px solid black;
 border-radius: 5px;
-width: 300px;
+width: 250px;
+color: #d3d2d2;
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+.buttonDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .btn {
   display: flex;
-  border-radius: 8px;
+  border-radius: 50%;
   border: none;
   /* box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.7); */
   
   background-color: rgba(220, 215, 247, 0.7);
   transition: background-color 0.3s ease;
-
-  padding: 5px 10px;
+color: black;
+  padding: 0;
+  width: 16px;
 }
 
 .btn:hover, .btn:focus {

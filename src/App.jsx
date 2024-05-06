@@ -90,7 +90,8 @@ const App = () => {
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
-        />
+          />
+          {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Layout>
   );

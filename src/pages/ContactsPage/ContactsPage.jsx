@@ -7,11 +7,9 @@ import SearchBox from "../../components/SearchBox/SearchBox"
 import ContactForm from "../../components/ContactForm/ContactForm"
 import { fetchContacts } from '../../redux/contacts/operations';
 import { selectContacts, selectError, selectIsLoading } from '../../redux/contacts/selectors';
-// import css from './App.module.css'
+import css from './ContactsPage.module.css'
+import { Toaster } from "react-hot-toast";
 
-
-// import { RegistrationForm } from './components/RegistrationForm/RegistrationForm';
-// import { LoginForm } from './components/LoginForm/LoginForm';
 
 
 export default function ContactsPage() {
@@ -26,19 +24,19 @@ export default function ContactsPage() {
   }, [dispatch]);
   
   return (
-    <div>
+    <div className={css.container}>
       <div>
-        
-        {/* <RegistrationForm />
-        <LoginForm /> */}
 
       <DocumentTitle>Phonebook</DocumentTitle>
       <ContactForm />
       <SearchBox />
-      {isLoading && <b>Loading tasks...</b>}
-      {error && <b>{error}</b>}
-      {items.length > 0 && <ContactList items={items} />}
       </div>
+      <div className={css.contactList}>
+      {error && <b>{error}</b>}
+      {isLoading && <b>Loading contacts...</b>}
+        {items.length > 0 && <ContactList items={items} />}
+      </div>
+      <Toaster />
     </div>
   )
 }
